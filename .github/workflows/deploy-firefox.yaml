@@ -17,6 +17,9 @@ jobs:
       - name: install dependecies
         run: npm i
 
+      - name : install web-ext
+        run: npm i web-ext
+
       - name: build
         run: npm run build:firefox
 
@@ -28,7 +31,7 @@ jobs:
           --channel unlisted \
           --source-dir ./build \
           --artifacts-dir ./signed
-          
+
       - name: create zip
         run: npm run pack:zip
 
