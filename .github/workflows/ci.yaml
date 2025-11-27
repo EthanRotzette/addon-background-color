@@ -1,0 +1,27 @@
+name: MonAutreWorklflow
+
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: install dependecies
+        run: npm i
+
+      - name: create zip
+        run: npm run pack:zip
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v5.0.0         
+        with:
+          path: ./dist-artifacts
