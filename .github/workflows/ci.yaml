@@ -19,7 +19,7 @@ jobs:
         run: npm i
 
       - name: build
-        run: wxt build -b firefox
+        run: npm run build:firefox
 
       - name: create zip
         run: npm run pack:zip
